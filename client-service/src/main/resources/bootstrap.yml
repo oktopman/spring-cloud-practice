@@ -1,0 +1,19 @@
+spring:
+  application:
+    name: client-service # config client 가 어떤 서비스를 조회할지 알 수 있도록 서비스 이름 지정. project 명과 동일하게 설정
+  profiles:
+    active:
+      default # 서비스가 실행할 기본 프로파일을 지정(config-service 에 정의). 프로파일은 환경에 매핑
+  cloud:
+    config:
+      uri: http://localhost:8888 # 스프링 클라우드 컨피그 서버에 위치를 지정
+
+#spring:
+#  application:
+#    name: licensingservice
+#  profiles:
+#    active:
+#      default
+#  cloud:
+#    config:
+#      uri: http://localhost:8888
