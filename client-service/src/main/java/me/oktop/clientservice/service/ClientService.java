@@ -1,7 +1,5 @@
 package me.oktop.clientservice.service;
 
-import me.oktop.clientservice.config.ServiceConfig;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
