@@ -1,0 +1,9 @@
+spring:
+  application:
+    name: client2-service # 유레카 서비스 ID
+  profiles:
+    active:
+      default
+  cloud:
+    config:
+      enable: true
