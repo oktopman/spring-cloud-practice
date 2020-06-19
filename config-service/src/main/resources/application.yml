@@ -1,11 +1,12 @@
 server:
   port: 8888
+
 spring:
-  profiles:
-    active: native
   cloud:
     config:
       server:
-        native:
-#          search-locations: file:///Users/hayun/IdeaProjects/spring-cloud-practice/config-service/src/main/resources/config/example
-          search-locations: file:///Users/hayun/IdeaProjects/spring-cloud-practice/config-service/src/main/resources/config
+        git:
+          uri: https://github.com/oktopman/spring-cloud-config-repository
+          search-paths: spring-cloud-practice/client-service
+#        native:
+#          search-locations: file:///Users/macbook/IdeaProjects/spring-cloud-practice/config-service/src/main/resources/config/client-service
