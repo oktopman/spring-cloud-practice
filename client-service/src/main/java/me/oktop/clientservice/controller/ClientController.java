@@ -27,4 +27,9 @@ public class ClientController {
     public String getUser(@PathVariable String userId) {
         return clientService.getUsername(userId);
     }
+
+    @GetMapping("/feign/user/{userId}")
+    public String getUserUseFeign(@PathVariable String userId) {
+        return clientService.getUsernameUseFeignClient(userId);
+    }
 }
