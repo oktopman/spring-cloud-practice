@@ -1,5 +1,6 @@
 package me.oktop.clientservice.service;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import me.oktop.clientservice.client.Client2FeignClient;
 import me.oktop.clientservice.client.RibbonRestTemplateClient;
 import org.springframework.stereotype.Service;
@@ -21,7 +22,14 @@ public class ClientService {
         return username;
     }
 
-    public String getUsernameUseFeignClient(String userId) {
+    @HystrixCommand(fallbackMethod = "fallback")
+    public String getUsernameUseFeignClient(String userId) throws InterruptedException {
+        Thread.sleep(2000);
         return feignClient.getUsername(userId + "feign : ");
+    }
+
+    public String fallback(String userId, Throwable t) {
+        System.out.println("t = " + t);
+        return "fallback method execute";
     }
 }

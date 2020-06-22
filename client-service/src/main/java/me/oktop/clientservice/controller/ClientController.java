@@ -29,7 +29,7 @@ public class ClientController {
     }
 
     @GetMapping("/feign/user/{userId}")
-    public String getUserUseFeign(@PathVariable String userId) {
+    public String getUserUseFeign(@PathVariable String userId) throws InterruptedException {
         return clientService.getUsernameUseFeignClient(userId);
     }
 }
