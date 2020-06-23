@@ -1,6 +1,9 @@
 package me.oktop.clientservice.controller;
 
 import me.oktop.clientservice.service.ClientService;
+import me.oktop.clientservice.utils.UserContextHolder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.context.config.annotation.RefreshScope;
@@ -30,6 +33,7 @@ public class ClientController {
 
     @GetMapping("/feign/user/{userId}")
     public String getUserUseFeign(@PathVariable String userId) throws InterruptedException {
+        System.out.println("ClientController Correlation id: " +  UserContextHolder.getContext().getCorrelationId());
         return clientService.getUsernameUseFeignClient(userId);
     }
 }
