@@ -36,4 +36,10 @@ public class ClientController {
         System.out.println("ClientController Correlation id: " +  UserContextHolder.getContext().getCorrelationId());
         return clientService.getUsernameUseFeignClient(userId);
     }
+
+    @GetMapping("/resttemplate/user/{userId}")
+    public String getUserUseRestTemplate(@PathVariable String userId) throws InterruptedException {
+        System.out.println("ClientController Correlation id: " +  UserContextHolder.getContext().getCorrelationId());
+        return clientService.getUsername(userId);
+    }
 }
