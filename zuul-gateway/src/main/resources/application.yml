@@ -26,3 +26,4 @@ zuul:
   ignored-service: 'client-service' # prefix 같은 느낌. htps:port/feign 으로 호출하면 서비스 id가 client-service 인 서비스로 호출
   routes:
     client-service: /feign/**
+  sensitive-headers: Cookie,Set-Cookie
